@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小希之家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            width: 100%;
+            background: #1a1a2e;
+            border-bottom: 2px solid #0f3460;
+            padding: 15px 0;
+            box-shadow: 0 0 20px rgba(15, 52, 96, 0.3);
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .nav-item {
+            color: #00d4ff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 5px 10px;
+        }
+        .nav-item:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00d4ff;
+            transform: scale(1.08);
+        }
+
+        /* 标题+功德按钮 区域（在图片上方） */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: none;
+            box-shadow: none;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        /* 中间图片展示区 */
+        .img-section {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .img-box {
+            width: 100%;
+            height: 380px;
+            background: #1e1e2f;
+            border: 2px solid #0f3460;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d4ff;
+            font-size: 1.3rem;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0,212,255,0.15);
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 功德按钮 */
+        .btn {
+            padding: 14px 30px;
+            background: #0f3460;
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,212,255,0.2);
+        }
+        .btn:hover {
+            background: #00d4ff;
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        /* 4个选项按钮区域 */
+        .link-box {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .pin-item {
+            display: block;
+            text-align: center;
+            padding: 30px 20px;
+            background: #1e1e2f;
+            border: 1px solid #2d2d44;
+            border-radius: 12px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .pin-item:hover {
+            transform: translateY(-6px);
+            border-color: #00d4ff;
+            background: #0f3460;
+            box-shadow: 0 8px 20px rgba(0,212,255,0.2);
+        }
+
+        /* 功德动画 */
+        .gongde {
+            position: fixed;
+            font-size: 22px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff;
+            pointer-events: none;
+            animation: gongdeUp 1s forwards;
+            z-index: 999;
+        }
+        @keyframes gongdeUp {
+            0% { opacity:1; transform:translateY(0); }
+            100% { opacity:0; transform:translateY(-50px); }
+        }
+
+        /* 点击提示弹窗样式 */
+        .tip-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000000;
+            border: 1px solid #00d4ff;
+            border-radius: 12px;
+            padding: 30px 40px;
+            color: #00d4ff;
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(0,212,255,0.3);
+            z-index: 1000;
+            display: none;
+        }
+        .tip-modal.show {
+            display: block;
+            animation: fadeIn 0.3s forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity:0; transform: translate(-50%, -55%); }
+            100% { opacity:1; transform: translate(-50%, -50%); }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid #222;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部5个导航栏 已做跳转功能 -->
+<div class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="trending.html" class="nav-item">土豆中学 热搜</a>
+        <a href="ddzs.html" class="nav-item">土豆中学</a>
+        <a href="about.html" class="nav-item">关于我</a>
+    </div>
+</div>
+
+<!-- 小希之家标题 + 功德加一 放在图片上方 -->
+<div class="hero">
+    <h1>小希之家</h1>
+    <p>六一快乐</p>
+    <button class="btn" id="gongdeBtn">六一儿童节快乐😍😍😍</button>
+</div>
+
+<!-- 中间大图区域 -->
+<div class="img-section">
+    <div class="img-box">
+        <img src="小希之家.png" alt="小希之家封面">
+    </div>
+</div>
+<h1><p style="color: #00d4ff;">小希之家-保持热爱</p></h1>
+<div class="link-box">
+    <a href="去中心化-小希之家.html" class="pin-item">去中心化-小希之家</a>
+    <a href="https://af3a1242.pinme.dev" class="pin-item">去中心化-小希之友</a>
+    <a href="nothing.html" class="pin-item">未开发页面</a>
+    <a href="nothing.html" class="pin-item">未开发页面</a>
+</div>
+
+<div class="tip-modal" id="tipModal"></div>
+
+<div class="footer">© 2026 小希之家 · 保持热爱</div>
+
+<script>
+    // 功德加一逻辑
+    const btn = document.getElementById('gongdeBtn');
+    btn.addEventListener('click', function(e) {
+        const gongde = document.createElement('div');
+        gongde.className = 'gongde';
+        gongde.innerText = '六一快乐';
+        gongde.style.left = e.pageX - 20 + 'px';
+        gongde.style.top = e.pageY - 30 + 'px';
+        document.body.appendChild(gongde);
+        setTimeout(() => gongde.remove(), 1000);
+    });
+</script>
+
+</body>
+</html>
