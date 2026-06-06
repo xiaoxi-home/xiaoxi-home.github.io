@@ -50,7 +50,37 @@
             transform: scale(1.08);
         }
 
-        
+        /* 标题+功德按钮 区域（在图片上方） */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: none;
+            box-shadow: none;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        /* 中间图片展示区 */
+        .img-section {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
         .img-box {
             width: 100%;
             height: 380px;
@@ -70,6 +100,72 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* 功德按钮 */
+        .btn {
+            padding: 14px 30px;
+            background: #0f3460;
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,212,255,0.2);
+        }
+        .btn:hover {
+            background: #00d4ff;
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        /* 4个选项按钮区域 */
+        .link-box {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .pin-item {
+            display: block;
+            text-align: center;
+            padding: 30px 20px;
+            background: #1e1e2f;
+            border: 1px solid #2d2d44;
+            border-radius: 12px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .pin-item:hover {
+            transform: translateY(-6px);
+            border-color: #00d4ff;
+            background: #0f3460;
+            box-shadow: 0 8px 20px rgba(0,212,255,0.2);
+        }
+
+        /* 功德动画 */
+        .gongde {
+            position: fixed;
+            font-size: 22px;
+            font-weight: bold; 
+            color: #00d4ff; 
+            text-shadow: 0 0 10px #00d4ff;
+            pointer-events: none;
+            animation: gongdeUp 1s forwards;
+            z-index: 999;
+        }
+        @keyframes gongdeUp {
+            0% { opacity:1; transform:translateY(0); }
+            100% { opacity:0; transform:translateY(-50px); }
         }
 
         /* 点击提示弹窗样式 */
@@ -125,12 +221,6 @@
            background-color: #000000; /* 设置背景为浅蓝色 */
        }
    </style>
-   <h1><p style="color: #fbfb69;">关于网站：</p></h1>
-   <h1><p style="color: #ffff78;">本网站是一个devfile静态页面,由小希之家团队制作(只有三人),目前多个页面尚在更新中，小希之家将会变得越来越好；无论如何，谢谢访问!!!😍😍😍  不要举报，求你了🥺</p></h1>
-   <h1><p style="color: #00d4ff;">站长姓名:LCX</p></h1>
-   <h1><p style="color: #00d4ff;">美术指导:GYT,XD</p></h1>
-   <h1><p style="color: #00d4ff;">开发人员:LCX</p></h1>
-   <h1><p style="color: #73ff8f;">免责声明：本网站只是为在下的学校、班级及个人制作博客，如有哪方面让您感到不适请多多包涵；本站些许图片及文案素材来源于网络，如有侵权请联系邮箱，站长将于发现后一个月内删除或替换。举报本站后，如没有正当理由，任何代价自负。</p></h1>
-<div class="footer">© 2026 小希之家 · 保持热爱</div>
+   <h1><p style="color: #00d4ff;">尚在开发中，敬请期待！</p></h1>
 </body>
 </html>
