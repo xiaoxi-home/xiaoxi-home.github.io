@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小希之家</title>
+    <style>
+        /* 暗黑系全局样式 */
+        body { 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background: #121212; /* 纯黑底色 */
+            color: #e0e0e0; /* 柔和浅灰文字 */
+        }
+        /* 暗黑头部区域 */
+        .hero { 
+            background: #1a1a2e; /* 深蓝黑渐变底色 */
+            color: #ffffff; 
+            padding: 100px 20px; 
+            text-align: center; 
+            border-bottom: 2px solid #0f3460;
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 20px; 
+            color: #00d4ff; /* 霓虹蓝标题 */
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            max-width: 600px; 
+            margin: 0 auto 30px; 
+            opacity: 0.9;
+        }
+        /* 暗黑按钮 */
+        .btn { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            background: #0f3460; /* 深蓝按钮 */
+            color: #00d4ff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-size: 1.1rem;
+            border: 1px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+        .btn:hover { 
+            background: #00d4ff; 
+            color: #121212;
+        }
+        /* 暗黑功能区 */
+        .features { 
+            max-width: 1000px; 
+            margin: 50px auto; 
+            padding: 0 20px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        .feature { 
+            text-align: center; 
+            padding: 25px; 
+            background: #1e1e2f; /* 卡片深色 */
+            border-radius: 10px;
+            border: 1px solid #2d2d44;
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px); /* 悬浮微动效 */
+            border-color: #00d4ff;
+        }
+        .feature h3 { 
+            margin-bottom: 15px; 
+            color: #00d4ff; /* 霓虹蓝小标题 */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>小希之家</h1>
+        <p>我的网站</p>
+        <a href="#" class="btn">功德加一</a>
+    </div>
+    <div class="features">
+        <div class="feature">
+            <h3>特点1</h3>
+            <p>爱编程</p>
+        </div>
+        <div class="feature">
+            <h3>特点2</h3>
+            <p>爱rc车</p>
+        </div>
+        <div class="feature">
+            <h3>特点3</h3>
+            <p>爱变形金刚</p>
+        </div>
+        <div class="feature">
+            <h3>特点4</h3>
+            <p>恨土豆中学</p>
+        </div>
+    </div>
+</body>
+</html>
