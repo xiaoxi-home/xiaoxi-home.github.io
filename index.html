@@ -228,7 +228,20 @@
         <img src="1000015599.jpg" alt="天空">
     </div>
 </div>
-<h3><p style="color: #00d4ff;">闷一天了</p></h3>
+<div id="typewriter"></div>
+
+<script>
+const text = "闷了一天了，天气一般";
+let i = 0;
+function typeWriter() {
+if (i < text.length) {
+document.getElementById("typewriter").textContent += text.charAt(i);
+i++;
+setTimeout(typeWriter, 100); // 控制速度
+}
+}
+typeWriter();
+</script>
 <div class="footer"></div>
 <h3><p style="color: #00d4ff;">今日采访：你觉得时间是变快了还是变慢了？ 50%人认为变快了</p></h3>
 <h3><p style="color: #00d4ff;">世界杯D组第一场，美国队4：1完胜巴拉圭，乌拉圭创造今年首个乌龙球</p></h3>
