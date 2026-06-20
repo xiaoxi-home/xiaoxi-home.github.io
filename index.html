@@ -193,6 +193,36 @@
             100% { opacity:1; transform: translate(-50%, -50%); }
         }
 
+        .typewriter {
+            font-size: 1.2rem;
+            color: #00d4ff;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            color: #00d4ff;
+        }
+
+        .game-link {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .game-link:hover {
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
         .footer {
             text-align: center;
             padding: 25px;
@@ -200,11 +230,20 @@
             border-top: 1px solid #222;
             margin-top: 30px;
         }
+
+        @media (max-width: 768px) {
+            .link-box {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- 顶部5个导航栏 已做跳转功能 -->
+<!-- 顶部5个导航栏 -->
 <div class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-item">首页</a>
@@ -215,10 +254,10 @@
     </div>
 </div>
 
-<!-- 小希之家标题 + 功德加一 放在图片上方 -->
+<!-- 小希之家标题 + 功德加一 -->
 <div class="hero">
     <h1>小希之家</h1>
-    <h2><p>个人网站</p></h2>
+    <p>个人网站</p>
     <button class="btn" id="gongdeBtn">端午必点</button>
 </div>
 
@@ -228,32 +267,39 @@
         <img src="1000015657.jpg" alt="粽子">
     </div>
 </div>
-<div id="typewriter"></div>
 
-<script>
-const text = "端午节，吃粽子";
-let i = 0;
-function typeWriter() {
-if (i < text.length) {
-document.getElementById("typewriter").textContent += text.charAt(i);
-i++;
-setTimeout(typeWriter, 100); // 控制速度
-}
-}
-typeWriter();
-</script>
-<div class="footer"></div>
-<h3><p style="color: #00d4ff;">我的polytrack游戏自制地图已出，感兴趣的去看看</p></h3>
-<h3><p style="color: #00d4ff;">地图码：PolyTrack24pdDKvscDCCAAF9XKmUx4SEqCStRgSGN7iKCmMeZUbsf6rzZzdxNPpKOl8Ahw4QYkeXDjGOBwDB8PBcBgTYy9mAM4FvmugUajBtAG4VyDDA7bIotDO5ueodVnGIpr217H1efOyz9b9c2l8156f559qbZsV79ypxVUUM9xeDf10bohLKPKKhn8EOwjeEHyjVBO3jVzbfpkkFLUCVEDfayO0O2uodzMZZuJnGItJUCzI7RjW3lMbrwM2Sk1MLrvI7GfJWVP9Rdt23ZbTDadhCkaS1U875yTHQznxhjRhFwfDIIZXZB</p></h3>
-<h3><p style="color: #00d4ff;">游戏链接：</p></h3>
-<h3><p style="color: #00d4ff;">端午安康</p></h3>
-<h3><p style="color: #00d4ff;">初三毕业典礼，祝旗开得胜，马到成功！！！</p></h3>
+<!-- 打字机效果 -->
+<div class="typewriter" id="typewriter"></div>
+
+<!-- 内容区域 -->
+<div class="content-section">
+    <h3>我的polytrack游戏自制地图已出，感兴趣的去看看</h3>
+    <h3>地图码：PolyTrack24pdDKvscDCCAAF9XKmUx4SEqCStRgSGN7iKCmMeZUbsf6rzZzdxNPpKOl8Ahw4QYkeXDjGOBwDB8PBcBgTYy9mAM4FvmugUajBtAG4VyDDA7bIotDO5ueodVnGIpr217H1efOyz9b9c2l8156f5</h3>
+    <h3><a href="#" class="game-link">游戏链接</a></h3>
+    <h3>端午安康</h3>
+    <h3>初三毕业典礼，祝旗开得胜，马到成功！！！</h3>
+</div>
+
+<!-- 提示弹窗 -->
 <div class="tip-modal" id="tipModal"></div>
 
+<!-- 页脚 -->
 <div class="footer">© 2026 小希之家 · 保持热爱</div>
 
 <script>
-    // 按钮反馈逻辑
+    // 打字机效果
+    const text = "端午节，吃粽子";
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typewriter").textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    typeWriter();
+
+    // 功德按钮反馈逻辑
     const btn = document.getElementById('gongdeBtn');
     btn.addEventListener('click', function(e) {
         const gongde = document.createElement('div');
