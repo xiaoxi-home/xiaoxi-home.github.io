@@ -259,13 +259,13 @@
 <div class="hero">
     <h1>小希之家</h1>
     <p>个人网站</p>
-    <button class="btn" id="gongdeBtn">端午必点</button>
+    <button class="btn" id="gongdeBtn">期末加油</button>
 </div>
 
 <!-- 中间大图区域 -->
 <div class="img-section">
     <div class="img-box">
-        <img src="1000015657.jpg" alt="粽子">
+        <img src="1000015737.jpg" alt="日程">
     </div>
 </div>
 
@@ -274,11 +274,11 @@
 
 <!-- 内容区域 -->
 <div class="content-section">
-    <h3>我的polytrack游戏自制地图已出，感兴趣的去看看</h3>
-    <h3>地图码：PolyTrack24pdDKvscDCCAAF9XKmUx4SEqCStRgSGN7iKCmMeZUbsf6rzZzdxNPpKOl8Ahw4QYkeXDjGOBwDB8PBcBgTYy9mAM4FvmugUajBtAG4VyDDA7bIotDO5ueodVnGIpr217H1efOyz9b9c2l8156f5</h3>
-    <h3><a href="javascript:void(0)" class="game-link">游戏链接</a></h3>
-    <h3>端午安康</h3>
-    <h3>初三毕业典礼，祝旗开得胜，马到成功！！！</h3>
+    <h3>期末考试日程如下：</h3>
+    <h3>第一天 语文，数学</h3>
+    <h3>第二天 英语，历史，道法</h3>
+    <h3>第三天 地理，生物</h3>
+    <h3></h3>
 </div>
 
 <!-- 提示弹窗 -->
@@ -290,7 +290,7 @@
 <script>
     // 打字机效果 - 确保DOM加载完成后执行
     function startTypewriter() {
-        const text = "端午节，吃粽子";
+        const text = "期末考试日程";
         let i = 0;
         const typewriterEl = document.getElementById("typewriter");
         
@@ -314,7 +314,7 @@
         btn.addEventListener('click', function(e) {
             const gongde = document.createElement('div');
             gongde.className = 'gongde';
-            gongde.innerText = '端午安康🚣';
+            gongde.innerText = '期末加油';
             gongde.style.left = e.pageX - 20 + 'px';
             gongde.style.top = e.pageY - 30 + 'px';
             document.body.appendChild(gongde);
