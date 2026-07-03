@@ -286,29 +286,49 @@
 <div class="footer">© 2026 小希之家 · 保持热爱</div>
 
 <script>
-    // 打字机效果 - 确保DOM加载完成后执行
+    // 循环打字机效果 - 打字 -> 停顿 -> 删除 -> 重复
     function startTypewriter() {
         const text = "期末考试日程";
-        let i = 0;
+        let index = 0;
+        let forward = true; // true = 打字, false = 删除
         const typewriterEl = document.getElementById("typewriter");
-        
         if (!typewriterEl) return;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                typewriterEl.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+
+        function tick() {
+            if (forward) {
+                // 打字阶段
+                if (index <= text.length) {
+                    typewriterEl.textContent = text.slice(0, index);
+                    index++;
+                    setTimeout(tick, 150); // 打字速度
+                } else {
+                    // 打完后停顿一会儿再开始删除
+                    forward = false;
+                    index = text.length; // 确保从末尾开始删除
+                    setTimeout(tick, 1400); // 停顿时间
+                }
+            } else {
+                // 删除阶段
+                if (index >= 0) {
+                    typewriterEl.textContent = text.slice(0, index);
+                    index--;
+                    setTimeout(tick, 60); // 删除速度（通常比打字快）
+                } else {
+                    // 删除完毕，短暂停顿后重新开始打字
+                    forward = true;
+                    index = 0;
+                    setTimeout(tick, 500);
+                }
             }
         }
-        typeWriter();
+
+        // 启动循环
+        tick();
     }
 
     // 功德按钮反馈逻辑
-    function initGongdeBtn() {
-        const btn = document.getElementById('gongdeBtn');
-        if (!btn) return;
-        
+    const btn = document.getElementById('gongdeBtn');
+    if (btn) {
         btn.addEventListener('click', function(e) {
             const gongde = document.createElement('div');
             gongde.className = 'gongde';
@@ -324,11 +344,9 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             startTypewriter();
-            initGongdeBtn();
         });
     } else {
         startTypewriter();
-        initGongdeBtn();
     }
 </script>
 
